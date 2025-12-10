@@ -6,12 +6,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "set-webhook": "ts-node src/shared/config/setWebhook.ts",
+    "test": "ts-node src/shared/config/testSetup.ts",
+    "connect": "ts-node testGoogleConnection.ts",
+    "tg": "ts-node src/shared/config/testBot.ts"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.10",
+    "axios": "^1.13.2",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "google-spreadsheet": "^5.0.2",
+    "googleapis": "^166.0.0",
     "next": "16.0.3",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "telegraf": "^4.16.3",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
