@@ -7,13 +7,15 @@ let webhookInitialized = false;
 async function initializeWebhook() {
   if (webhookInitialized) return;
 
-  const baseUrl = process.env.BASE_URL || process.env.VERCEL_URL;
-
-  console.log(baseUrl);
+  let baseUrl = process.env.BASE_URL || process.env.VERCEL_URL;
   
   if (!baseUrl) {
     console.error('❌ BASE_URL or VERCEL_URL not set');
     return;
+  }
+
+  if (baseUrl && !baseUrl.startsWith('http')) {
+    baseUrl = `https://${baseUrl}`;
   }
 
   try {
